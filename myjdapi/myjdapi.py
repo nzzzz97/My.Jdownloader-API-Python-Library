@@ -721,6 +721,22 @@ class Linkgrabber:
         resp = self.device.action(self.url + "/queryPackages", params)
         return resp
 
+    def set_comment(self, linkIds=[],packageIds=[], allPackageLinks=True,comment=''):
+        """
+        Set the comment for links and packages
+        :param link_ids: link UUID's.
+        :type: list of strings
+        :param package_ids: Package UUID's.
+        :type: list of strings.
+        :param allPackageLinks: Set comment for all links.
+        :type: boolean.
+        :param comment: Comment value to set for the links
+        :type: string.
+        """
+        params = [linkIds, packageIds, allPackageLinks, comment]
+        resp = self.device.action(self.url + "/setComment", params)
+        return resp
+
     def move_packages(self):
         """
         No idea what parameters i have to pass and/or i don't know what it does.
